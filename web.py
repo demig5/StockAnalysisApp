@@ -10,14 +10,14 @@ st.set_page_config(
    page_icon="💣",
 )
 
-@st.experimental_memo
+@st.cache_data
 ## FETCHING HISTORIC DATA
 def historic_data(stock):
     ticker = yf.Ticker(stock)
     hist = ticker.history(period="max")
     return hist
 
-@st.experimental_memo
+@st.cache_data
 ## FETCHING COMPANY INFO
 def price_info(stock):
     ticker = yf.Ticker(stock)
